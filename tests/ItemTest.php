@@ -13,6 +13,11 @@
 
     class ItemTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Item::deleteAll();
+        }
+
         function test_save()
         {
 
@@ -26,6 +31,58 @@
             // Assert
             $result = Item::getAll();
             $this->assertEquals($test_item, $result[0]);
+        }
+
+        function test_getId()
+        {
+            // Arrange
+            $name = "minimoog";
+            $id = 1;
+            $test_item = new Item($name, $id);
+
+            // Act
+            $result = $test_item->getId();
+
+            // Assert
+            $this->assertEquals(1, $result);
+        }
+
+        function test_getAll()
+        {
+            // Arrange
+            $name1 = "juno 106";
+            $test_item1 = new Item($name1);
+            $test_item1->save();
+
+            $name2 = "juno 60";
+            $test_item2 = new Item($name2);
+            $test_item2->save();
+
+            // Act
+            $result = Item::getAll();
+
+            // Assert
+            $this->assertEquals([$test_item1, $test_item2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            // Arrange
+            $name1 = "juno 106";
+            $test_item1 = new Item($name1);
+            $test_item1->save();
+
+            $name2 = "juno 60";
+            $test_item2 = new Item($name2);
+            $test_item2->save();
+
+            // Act
+            Item::deleteAll();
+
+            // Assert
+            $result = Item::getAll();
+            $this->assertEquals([], $result);
+
         }
     }
 
