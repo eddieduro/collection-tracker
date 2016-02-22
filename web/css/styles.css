@@ -1,0 +1,9 @@
+.shia{
+    background: url('http://45.media.tumblr.com/2bc3aa7c35c66aadc6b32dd337e94a97/tumblr_npd34ypYaQ1qje999o1_400.gif') center no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+
+.hideme{
+    display: none;
+}
