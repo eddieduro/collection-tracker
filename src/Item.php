@@ -28,7 +28,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO items (description) VALUES ('{$this->getName()}')");
+            $GLOBALS['DB']->exec("INSERT INTO items (name) VALUES ('{$this->getName()}')");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -37,7 +37,7 @@
             $returned_items = $GLOBALS['DB']->query("SELECT * FROM items;");
             $items = array();
             foreach($returned_items as $item){
-                $name = $item['description'];
+                $name = $item['name'];
                 $id = $item['id'];
                 $new_item = new Item($name, $id);
                 array_push($items, $new_item);

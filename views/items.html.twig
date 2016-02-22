@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Collection Tracker</title>
+    </head>
+    <body>
+        <div class="container">
+            {% if items is not empty %}
+                <h1>Here's your collection:</h1>
+                <ul>
+                    {% for item in items %}
+                        <li>{{ item.getName }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <h3>Add a new item!</h3>
+            <form action="/items" method="post">
+                <label for="name">Item Name:</label>
+                <input name="name" id="name">
+                <button type="submit" class="btn">Add Item</button>
+            </form>
+            <form action='/delete_items' method='post'>
+                <button type='submit'>Clear</button>
+            </form>
+            <h4><a href="/">home</a></h4>
+        </div>
+    </body>
+</html>
