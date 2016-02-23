@@ -10,7 +10,7 @@
         <div class="container">
            <h3>Results</h3>
            {% for item in items %}
-             <h5>{{ item.getName }}</h5>
+             <h5>{{ item.getName }} is at position {{ item.getId }}</h5>
            {% endfor %}
            <a href='/'>See your current list!</a>
         </div>

@@ -47,7 +47,7 @@
 
         static function deleteAll()
         {
-            $GLOBALS['DB']->exec("DELETE FROM items");
+            $GLOBALS['DB']->exec("DELETE FROM items;");
         }
 
         static function findId($search_id)
