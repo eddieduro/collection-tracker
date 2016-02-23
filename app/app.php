@@ -32,6 +32,30 @@
         ));
     });
 
+    $app->get("/search_items", function () use ($app){
+        return $app['twig']->render("search.html.twig");
+    });
+
+    $app->post("/results", function () use ($app){
+        $items = array();
+        $search_item = strtolower($_POST['itemSearch']);
+        $current_items = Item::getAll();
+        foreach($current_items as $item ){
+            if(strtolower($item->getName()) == $search_item ){
+                array_push($items, $item);
+            }
+        }
+        return $app['twig']->render("results.html.twig", array(
+            'items' => $items
+        ));
+    });
+    // $app->post("/search_items", function () use ($app){
+    //     $results = Item::findName();
+    //     return $app['twig']->render("results.html.twig", array(
+    //         'items' => Item::getAll(), 'results' => $results
+    //     ));
+    // });
+
     $app->post("/delete_items", function () use ($app) {
         Item::deleteAll();
         return $app['twig']->render("index.html.twig");

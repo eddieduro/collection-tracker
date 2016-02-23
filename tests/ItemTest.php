@@ -65,20 +65,7 @@
             $this->assertEquals([$test_item1, $test_item2], $result);
         }
 
-        // function test_findId()
-        // {
-        //     // Arrange
-        //     $name1 = "juno 106";
-        //     $test_item1 = new Item($name1);
-        //     $test_item1->save();
-        //
-        //     // Act
-        //     $result = Item::findId($test_item1->getId());
-        //
-        //     // Assert
-        //     $this->assertEquals($test_item1, $result);
-        // }
-
+    
         function test_findName()
         {
             // Arrange
