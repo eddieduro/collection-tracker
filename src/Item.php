@@ -63,6 +63,7 @@
             }
             return $found_item;
         }
+        
         static function findName($search_name)
         {
             $found_item = null;

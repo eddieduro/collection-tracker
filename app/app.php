@@ -49,12 +49,6 @@
             'items' => $items
         ));
     });
-    // $app->post("/search_items", function () use ($app){
-    //     $results = Item::findName();
-    //     return $app['twig']->render("results.html.twig", array(
-    //         'items' => Item::getAll(), 'results' => $results
-    //     ));
-    // });
 
     $app->post("/delete_items", function () use ($app) {
         Item::deleteAll();
